@@ -1,0 +1,27 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="{% static 'css/base.css' %}"
+    
+</head>
+<body>
+    <h2><a href={% url "Post_view" %}>Homepage</a></h2>
+
+{% if user.is_authenticated %}
+    <p> Hush kelibsiz {{user.username}}</p>
+    <p><a href= "{% url 'logout'%}"> Saytdan chiqish</a></p>
+{% else %}
+    <p> Siz saytga kirmagansiz</p>
+    <p><a href= "{% url 'login'%}"> Saytga kirish </a></p>
+    <p><a href= "{% url 'signup'%}"> Ro'yhatdan o'tish </a></p>
+{% endif %}
+
+    {%block content%}        
+    
+    {%endblock content%}
+
+</body>
+</html>

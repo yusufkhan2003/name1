@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{%load static%}
+
+    {%block content%}
+
+    {% for post in object_list %}
+    <h2> <a href="{% url 'detail_page' post.pk %}"> {{post.title}} </a> </h2>
+    <h4>{{post.text | slice:":200"}}</h4>
+    
+    {%endfor%}
+
+    <h2><a href={% url "Create_view" %}>Yangi post qo'shish</a></h2>
+
+    {%endblock content%}
